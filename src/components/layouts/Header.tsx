@@ -13,7 +13,7 @@ const navList = [
 
 const Header = () => {
   return (
-    <header className="flex w-screen max-w-[1440px] items-center justify-between px-6 py-4">
+    <header className="flex w-full max-w-[1440px] items-center justify-between px-6 py-4">
       <div className="flex items-center gap-6">
         <Link href={"/"} className="flex items-center gap-1.5 font-bold hover:cursor-pointer">
           <img src={"/logo.svg"} alt="SSG Logo" />
@@ -36,8 +36,8 @@ const Header = () => {
       </div>
       <div className="flex items-center gap-4">
         <img src={"/search.svg"} />
-        <Link href={"/signin"} className="hover:cursor-pointer">
-          <User />
+        <Link href={"/signin"} className="rounded-[8px] bg-blue-700 px-3 py-2 text-white hover:cursor-pointer">
+          로그인
         </Link>
       </div>
     </header>
