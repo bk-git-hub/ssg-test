@@ -3,18 +3,19 @@ import { Category } from "@/types/category";
 import { formatTimeAgo } from "@/utils/formatTimeAgo";
 import CategoryBadge from "../common/CategoryBadge";
 import TagBadge from "../common/TagBadge";
+import ImageWithFallback from "../common/ImageWithFallback";
 
 export default function LandingArticleCard({ article }: { article: Article }) {
   return (
     // On mobile: stack vertically (flex-col). On medium screens and up: go horizontal (md:flex-row).
     <div className="flex w-full flex-col items-center gap-6 rounded-2xl border border-neutral-200 p-4 md:flex-row md:p-2">
-      <img
+      <ImageWithFallback
         src={article.thumbnailUrl}
         alt={article.title}
-        // On mobile: full width. On medium screens and up: fixed width and prevent shrinking.
-        className="aspect-video w-full rounded-2xl object-cover md:w-[383px] md:flex-shrink-0"
         width={383}
         height={240}
+        // The classes for sizing and responsive behavior now go here
+        className="w-full md:w-[383px] md:flex-shrink-0"
       />
       <div className="flex w-full flex-1 flex-col gap-3">
         <div className="flex gap-2">
