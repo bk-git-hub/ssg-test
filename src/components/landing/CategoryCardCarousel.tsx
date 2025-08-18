@@ -59,18 +59,18 @@ export default function CategoryCardCarousel({ items }: CarouselProps) {
         opts={{
           loop: true,
         }}
-        className="mx-auto w-full max-w-5xl"
+        className="mx-auto w-full max-w-5xl px-5"
       >
         <CarouselContent className="-ml-4">
           {items.map((item) => (
-            <CarouselItem key={item.categoryName} className="basis-1/3 pl-4">
+            <CarouselItem key={item.categoryName} className="basis-1/2 pl-4 lg:basis-1/3">
               <CategoryCard category={item} />
             </CarouselItem>
           ))}
         </CarouselContent>
 
-        <CarouselPrevious className="left-[-40px]" />
-        <CarouselNext className="right-[-40px]" />
+        <CarouselPrevious className="left-[-20px]" />
+        <CarouselNext className="right-[-20px]" />
       </Carousel>
 
       {/* Dot Navigation */}
