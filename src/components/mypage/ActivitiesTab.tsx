@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const tabItems = [
-  { label: "참여중인 프로젝트", href: "/my-page/activities/projects" },
-  { label: "작성한 아티클", href: "/my-page/activities/articles" },
-  { label: "좋아요 누른 글", href: "/my-page/activities/likes" },
-  { label: "작성한 댓글", href: "/my-page/activities/comments" },
+  { label: "참여한 프로젝트", href: "/mypage/activities/projects" },
+  { label: "작성한 아티클", href: "/mypage/activities/articles" },
+  { label: "좋아요", href: "/mypage/activities/likes" },
+  { label: "작성한 댓글", href: "/mypage/activities/comments" },
 ];
 
 export default function ActivitiesTabs() {

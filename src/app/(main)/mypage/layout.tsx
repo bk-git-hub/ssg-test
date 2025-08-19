@@ -6,9 +6,11 @@ export default function MyPageLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex h-screen w-full bg-neutral-100 p-5">
-      <MyPageTabs />
-      {children}
+    <div className="h-screen w-full bg-neutral-100 p-5">
+      <div className="mx-auto flex w-full max-w-[1440px] px-4">
+        <MyPageTabs />
+        {children}
+      </div>
     </div>
   );
 }
