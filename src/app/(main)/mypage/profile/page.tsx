@@ -31,7 +31,7 @@ export default function ProfilePage() {
 
         {/* --- Edit Profile Button --- */}
         <Link
-          href="/my-page/edit" // This link points to the profile edit page
+          href="/mypage/profile/edit" // This link points to the profile edit page
           className="flex h-10 items-center gap-2 rounded-md bg-gray-800 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-800/90"
         >
           <Icon name="file-pen-line" className="h-4 w-4" />
