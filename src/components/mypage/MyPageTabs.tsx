@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"; // From shadcn/ui
 // Define the structure for each tab item
 const tabItems = [
   { label: "내 프로필", href: "/mypage/profile", icon: "user" as IconName },
-  { label: "나의 활동", href: "/mypage/activities", icon: "activity" as IconName },
+  { label: "나의 활동", href: "/mypage/activities/projects", icon: "activity" as IconName },
   { label: "활동 뱃지", href: "/mypage/badges", icon: "award" as IconName },
   { label: "계정 설정", href: "/mypage/settings", icon: "settings" as IconName },
 ];
