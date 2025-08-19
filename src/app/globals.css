@@ -12,6 +12,22 @@
 }
 
 @theme {
+  --animation-shimmer: shimmer 2s ease-in-out infinite;
+
+  @keyframes shimmer {
+    /* 애니메이션 시작 시, 빛 효과는 왼쪽 밖(-100%)에서 시작합니다.
+    */
+    from {
+      transform: translateX(-100%);
+    }
+    /*
+      애니메이션 종료 시, 빛 효과는 오른쪽 밖(100%)으로 사라집니다.
+    */
+    to {
+      transform: translateX(100%);
+    }
+  }
+
   --font-pretendard: "Pretendard", sans-serif;
 
   --color-blue-900: #0d4b9b;
