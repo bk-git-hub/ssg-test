@@ -6,7 +6,7 @@ export default function MyPageLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex h-screen w-full bg-neutral-100">
+    <div className="flex h-screen w-full bg-neutral-100 p-5">
       <MyPageTabs />
       {children}
     </div>
