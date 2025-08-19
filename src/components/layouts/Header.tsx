@@ -13,7 +13,7 @@ const navList = [
 
 const Header = () => {
   return (
-    <header className="flex w-full max-w-[1440px] items-center justify-between px-6 py-4">
+    <header className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-6 py-4">
       <div className="flex items-center gap-6">
         <Link href={"/"} className="flex items-center gap-1.5 font-bold hover:cursor-pointer">
           <img src={"/logo.svg"} alt="SSG Logo" />
