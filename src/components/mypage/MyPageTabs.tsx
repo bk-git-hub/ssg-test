@@ -18,7 +18,7 @@ export default function MyPageTabs() {
   const pathname = usePathname();
 
   return (
-    <div className="flex w-[200px] shrink-0 flex-col gap-10 p-4 lg:w-[300px]">
+    <div className="flex w-[200px] shrink-0 flex-col gap-10 px-4 lg:w-[300px]">
       <h2 className="text-3xl font-bold lg:text-4xl">마이페이지</h2>
       <nav className="flex w-full flex-col items-center gap-2 bg-neutral-100">
         {tabItems.map((item) => {
