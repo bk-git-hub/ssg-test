@@ -13,7 +13,7 @@ const navList = [
 
 const Header = () => {
   return (
-    <header className="text-primary w-full bg-white">
+    <header className="text-primary sticky top-0 z-10 w-full bg-white shadow-2xl">
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-6 py-4">
         <div className="flex max-w-[1440px] items-center gap-6">
           <Link href={"/"} className="flex items-center gap-1.5 bg-white p-2 font-bold hover:cursor-pointer">

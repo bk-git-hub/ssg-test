@@ -9,7 +9,7 @@ export default function CategoryBadge({ categoryName, postType }: CategoryBadgeP
   return (
     <Link
       href={`/${postType}?category=${categoryName}`}
-      className="rounded-full bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-800"
+      className="bg-primary rounded-full px-3 py-1 text-sm font-semibold text-white"
     >
       {categoryName}
     </Link>

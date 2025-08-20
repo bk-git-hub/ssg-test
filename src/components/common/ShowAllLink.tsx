@@ -1,3 +1,4 @@
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 interface ShowAllLinkProps {
@@ -8,10 +9,10 @@ export default function ShowAllLink({ href }: ShowAllLinkProps) {
   return (
     <Link
       href={href}
-      className="flex w-[100px] items-center justify-between rounded-[8px] bg-[#EDF9FF] p-3 font-bold text-blue-700"
+      className="bg-primary flex w-fit items-center justify-between rounded-[8px] p-3 font-bold text-white"
     >
       전체보기
-      <img src="/right.svg" alt="전체보기" width={20} height={20} />
+      <ChevronRight />
     </Link>
   );
 }
