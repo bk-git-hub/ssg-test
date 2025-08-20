@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ProjectCard as ProjectCardType } from "@/types/project";
+import { ProjectC } from "@/types/project";
 import { mockProjects } from "@/mocks/mockProjectCards";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon-picker";

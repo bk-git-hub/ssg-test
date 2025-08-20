@@ -1,8 +1,8 @@
-import { ProjectCard } from "@/types/project";
+import { ProjectC } from "@/types/project";
 import { mockUsers } from "./mockUsers"; // Import your mock users
 import { securityCategories } from "./mockCategories"; // Import your sample categories
 
-export const mockProjects: ProjectCard[] = [
+export const mockProjects: ProjectC[] = [
   {
     id: "proj-011",
     projectTitle: "Open Source Intelligence (OSINT) Dashboard",

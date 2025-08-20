@@ -1,8 +1,8 @@
-import { ProjectCard as ProjectCardType } from "@/types/project";
+import { ProjectC } from "@/types/project";
 import Link from "next/link";
 
 interface SimpleProjectCardProps {
-  project: ProjectCardType;
+  project: ProjectC;
 }
 
 export default function SimpleProjectCard({ project }: SimpleProjectCardProps) {

@@ -1,11 +1,11 @@
-import { ProjectCard as ProjectCardType } from "@/types/project";
+import { ProjectC } from "@/types/project";
 import { User } from "@/types/user";
 import CategoryBadge from "../common/CategoryBadge";
 import TagBadge from "../common/TagBadge";
 import Link from "next/link";
 
 interface ProjectCardProps {
-  project: ProjectCardType;
+  project: ProjectC;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {

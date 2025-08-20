@@ -12,3 +12,13 @@ export type UserDetail = {
   projectCount: number;
   articleCount: number;
 };
+
+export type UserProfile = {
+  name: string;
+  nickname: string;
+  email: string;
+  description: string;
+  techstack: string[];
+  profileImageUrl: string;
+  githubUrl?: string;
+};
