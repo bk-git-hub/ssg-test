@@ -1,8 +1,6 @@
-// src/components/CategoryCardCarousel.tsx
-
 "use client";
 
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -20,31 +18,22 @@ interface CarouselProps {
 
 export default function CategoryCardCarousel({ items }: CarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [current, setCurrent] = useState(0);
 
-  // This effect updates the selected dot when the carousel scrolls
-  useEffect(() => {
-    if (!api) {
-      return;
+  // 1. Chunk the items array into groups of 3
+  const chunkedItems = useMemo(() => {
+    const result: Category[][] = [];
+    for (let i = 0; i < items.length; i += 3) {
+      result.push(items.slice(i, i + 3));
     }
+    return result;
+  }, [items]);
 
-    // Set the initial selected index
-    setSelectedIndex(api.selectedScrollSnap());
+  const onSelect = useCallback((carouselApi: CarouselApi) => {
+    if (!carouselApi) return;
+    setCurrent(carouselApi.selectedScrollSnap());
+  }, []);
 
-    // Listen for the 'select' event on the carousel
-    const onSelect = () => {
-      setSelectedIndex(api.selectedScrollSnap());
-    };
-
-    api.on("select", onSelect);
-
-    // Cleanup the event listener
-    return () => {
-      api.off("select", onSelect);
-    };
-  }, [api]);
-
-  // Function to scroll to a specific dot
   const scrollTo = useCallback(
     (index: number) => {
       api?.scrollTo(index);
@@ -52,37 +41,57 @@ export default function CategoryCardCarousel({ items }: CarouselProps) {
     [api],
   );
 
+  useEffect(() => {
+    if (!api) return;
+    onSelect(api);
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
+  }, [api, onSelect]);
+
   return (
     <div className="relative w-full">
       <Carousel
         setApi={setApi}
         opts={{
-          loop: true,
+          align: "start",
+          loop: false, // Loop is off for a clear start and end
         }}
         className="mx-auto w-full max-w-5xl px-5"
       >
-        <CarouselContent className="-ml-4">
-          {items.map((item) => (
-            <CarouselItem key={item.categoryName} className="basis-1/2 pl-4 lg:basis-1/3">
-              <CategoryCard category={item} />
+        <CarouselContent className="px-2 py-4">
+          {/* 2. Map over the chunked array (the pages) */}
+          {chunkedItems.map((pageItems, pageIndex) => (
+            <CarouselItem key={pageIndex}>
+              {/* This div contains the 3 cards for the current page */}
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {pageItems.map((item) => (
+                  <CategoryCard key={item.id} category={item} />
+                ))}
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
 
-        <CarouselPrevious className="left-[-20px]" />
-        <CarouselNext className="right-[-20px]" />
+        <CarouselPrevious className="border-primary text-primary left-[-20px] border-2 hover:cursor-pointer disabled:cursor-not-allowed disabled:border-gray-400 disabled:text-gray-400" />
+        <CarouselNext className="border-primary text-primary right-[-20px] border-2 hover:cursor-pointer disabled:cursor-not-allowed disabled:border-gray-400 disabled:text-gray-400" />
       </Carousel>
 
-      {/* Dot Navigation */}
+      {/* 3. The dot navigation logic is now incredibly simple */}
       <div className="absolute left-1/2 mt-6 flex -translate-x-1/2 items-center justify-center gap-2">
-        {items.map((_, index) => (
+        {chunkedItems.map((_, index) => (
           <button
             key={index}
             onClick={() => scrollTo(index)}
-            className={`h-3 w-3 rounded-full transition-all duration-300 ${
-              index === selectedIndex ? "scale-125 bg-blue-500" : "bg-gray-300"
+            className={`h-3 w-3 rounded-full border-2 transition-all duration-300 ${
+              index === current
+                ? "scale-125 border-[#111827] bg-[#111827]" // Active State
+                : "border-primary bg-white hover:bg-gray-200" // Inactive State
             }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Go to page ${index + 1}`}
           />
         ))}
       </div>

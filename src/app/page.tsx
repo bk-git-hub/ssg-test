@@ -17,21 +17,21 @@ export default function Home() {
   return (
     <div className="font-pretendard flex w-full flex-col items-center bg-white text-black">
       <Header />
-      <main className="flex w-full flex-col gap-20">
-        <div className="w-screen text-center text-3xl text-white sm:h-[250px] md:h-[400px] lg:h-[500px]">
+      <main className="flex w-full flex-col">
+        <div className="w-screen text-center text-3xl text-white sm:h-[250px] md:h-[420px]">
           <HeroBanner />
         </div>
 
-        <div className="flex w-full flex-col items-center gap-11 overflow-x-hidden bg-neutral-100 p-10 md:p-20 lg:p-30">
-          <span className="text-neutral-1000 text-5xl font-bold">학습 분야 둘러보기</span>
+        <div className="flex w-full flex-col items-center gap-11 overflow-x-hidden bg-white p-10 md:p-20">
+          <span className="text-neutral-1000 text-5xl font-bold">Learning Topics</span>
           <CategoryCardCarousel items={securityCategories} />
         </div>
 
-        <ArticleCardList heading="최신 아티클" articles={mockArticles} />
+        {/* <ArticleCardList heading="최신 아티클" articles={mockArticles} />
 
         {mockProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
-        ))}
+        ))} */}
       </main>
     </div>
   );
